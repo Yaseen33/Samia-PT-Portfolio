@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Samia Umme Hafsha — 근무 경력 포트폴리오</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Mono:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1B1B1F;
+    --ink-soft:#2A2A30;
+    --paper:#F5EFE2;
+    --paper-dim:#E8E0CE;
+    --chili:#C23B22;
+    --chili-dim:#8f2c19;
+    --leaf:#3C7A5C;
+    --leaf-dim:#2b5942;
+    --gold:#D9A441;
+    --line: rgba(245,239,226,0.14);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Noto Sans KR', sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.01ms !important; transition-duration:0.01ms !important;}
+  }
+  .mono{font-family:'Space Mono', monospace;}
+  .display{font-family:'Archivo Black', 'Noto Sans KR', sans-serif;}
+
+  a{color:inherit;}
+  ::selection{background:var(--chili); color:var(--paper);}
+
+  /* subtle kitchen-tile grid texture */
+  .tile-bg{
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 42px 42px;
+  }
+
+  header.hero{
+    position:relative;
+    padding: 64px 24px 96px;
+    overflow:hidden;
+  }
+  .hero-inner{
+    max-width: 980px;
+    margin: 0 auto;
+    position:relative;
+    z-index:2;
+  }
+  .eyebrow{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-family:'Space Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:28px;
+  }
+  .eyebrow .dot{
+    width:7px;height:7px;border-radius:50%;
+    background:var(--leaf);
+    box-shadow:0 0 0 3px rgba(60,122,92,0.25);
+  }
+
+  .badge-card{
+    background: var(--paper);
+    color: var(--ink);
+    border-radius: 4px;
+    padding: 36px 36px 30px;
+    box-shadow: 0 30px 60px -20px rgba(0,0,0,0.55);
+    position:relative;
+    transform: rotate(-0.6deg);
+  }
+  .badge-card::before{
+    content:"";
+    position:absolute;
+    top:14px; right:14px;
+    width:78px; height:78px;
+    border-radius:50%;
+    border:3px solid var(--chili);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transform: rotate(12deg);
+    opacity:0.9;
+  }
+  .stamp{
+    position:absolute; top:22px; right:22px;
+    width:66px; height:66px;
+    border-radius:50%;
+    border:2.5px solid var(--chili);
+    color:var(--chili);
+    display:flex; align-items:center; justify-content:center;
+    text-align:center;
+    font-family:'Space Mono', monospace;
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:0.05em;
+    transform: rotate(10deg);
+    line-height:1.3;
+  }
+  .badge-top{
+    display:flex; gap:22px; align-items:flex-start;
+    flex-wrap:wrap;
+  }
+  .avatar-mark{
+    width:64px; height:64px; flex:0 0 auto;
+    border-radius:50%;
+    background: linear-gradient(135deg, var(--chili), var(--gold));
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Archivo Black', sans-serif;
+    font-size:24px;
+    color:var(--paper);
+  }
+  .badge-name{
+    font-family:'Archivo Black', sans-serif;
+    font-size: clamp(28px, 5vw, 44px);
+    line-height:1.05;
+    margin:0 0 6px;
+    padding-right: 70px;
+  }
+  .badge-sub{
+    font-family:'Space Mono', monospace;
+    font-size:13px;
+    color:var(--ink-soft);
+    opacity:0.75;
+  }
+  .badge-tagline{
+    margin-top:18px;
+    font-size:15.5px;
+    line-height:1.75;
+    max-width: 640px;
+    color:var(--ink-soft);
+  }
+
+  .badge-stats{
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap:0;
+    margin-top:28px;
+    border-top: 1px dashed rgba(27,27,31,0.25);
+    padding-top:18px;
+  }
+  .badge-stats div{
+    text-align:center;
+    border-right: 1px dashed rgba(27,27,31,0.2);
+  }
+  .badge-stats div:last-child{border-right:none;}
+  .badge-stats .num{
+    font-family:'Archivo Black', sans-serif;
+    font-size: clamp(18px, 3vw, 26px);
+    color: var(--chili);
+  }
+  .badge-stats .label{
+    font-family:'Space Mono', monospace;
+    font-size:10.5px;
+    letter-spacing:0.05em;
+    color: var(--ink-soft);
+    opacity:0.7;
+    margin-top:2px;
+  }
+
+  .skill-row{
+    max-width:980px;
+    margin: -44px auto 0;
+    padding: 0 24px;
+    position:relative;
+    z-index:2;
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .chip{
+    font-family:'Space Mono', monospace;
+    font-size:12px;
+    padding:9px 14px;
+    border-radius:999px;
+    background: var(--ink-soft);
+    border:1px solid var(--line);
+    color: var(--paper);
+    white-space:nowrap;
+  }
+  .chip b{color:var(--gold); font-weight:700;}
+
+  section{
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 88px 24px 20px;
+  }
+  .section-head{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:16px;
+    margin-bottom: 44px;
+    border-bottom: 1px solid var(--line);
+    padding-bottom:18px;
+    flex-wrap:wrap;
+  }
+  .section-head h2{
+    font-family:'Archivo Black', sans-serif;
+    font-size: clamp(22px, 3.4vw, 32px);
+    margin:0;
+  }
+  .section-head .count{
+    font-family:'Space Mono', monospace;
+    font-size:12px;
+    color:var(--gold);
+    letter-spacing:0.08em;
+  }
+
+  /* Timeline of jobs styled as order tickets */
+  .ticket-list{
+    position:relative;
+  }
+  .ticket-list::before{
+    content:"";
+    position:absolute;
+    left: 15px;
+    top: 6px; bottom: 6px;
+    width:1px;
+    background: var(--line);
+  }
+  .ticket{
+    position:relative;
+    padding-left: 46px;
+    margin-bottom: 26px;
+  }
+  .ticket-node{
+    position:absolute;
+    left: 8px; top: 26px;
+    width:15px; height:15px;
+    border-radius:50%;
+    background: var(--ink);
+    border:2px solid var(--leaf);
+  }
+  .ticket.current .ticket-node{
+    background: var(--chili);
+    border-color: var(--chili);
+    box-shadow: 0 0 0 5px rgba(194,59,34,0.18);
+  }
+  .ticket-paper{
+    background: var(--paper);
+    color: var(--ink);
+    border-radius: 3px;
+    padding: 22px 24px 20px;
+    box-shadow: 0 14px 30px -18px rgba(0,0,0,0.6);
+    border-left: 4px solid var(--leaf);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .ticket.current .ticket-paper{ border-left-color: var(--chili); }
+  .ticket-paper:hover{
+    transform: translateX(3px);
+    box-shadow: 0 18px 36px -16px rgba(0,0,0,0.65);
+  }
+  .ticket-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:14px;
+    flex-wrap:wrap;
+  }
+  .ticket-name{
+    font-family:'Archivo Black', sans-serif;
+    font-size: 18.5px;
+    letter-spacing:-0.01em;
+  }
+  .ticket-period{
+    font-family:'Space Mono', monospace;
+    font-size:11.5px;
+    color: var(--chili-dim);
+    white-space:nowrap;
+    text-align:right;
+  }
+  .ticket-duration{
+    display:block;
+    color: var(--ink-soft);
+    opacity:0.6;
+    font-size:10.5px;
+    margin-top:2px;
+  }
+  .ticket-tags{
+    display:flex; flex-wrap:wrap; gap:6px;
+    margin: 12px 0 10px;
+  }
+  .tag{
+    font-family:'Space Mono', monospace;
+    font-size:10.5px;
+    padding:4px 9px;
+    border-radius:3px;
+    background: rgba(60,122,92,0.12);
+    border:1px solid rgba(60,122,92,0.4);
+    color: var(--leaf-dim);
+  }
+  .ticket-desc{
+    font-size:14px;
+    line-height:1.7;
+    color: var(--ink-soft);
+    margin-top:8px;
+    border-top: 1px dashed rgba(27,27,31,0.18);
+    padding-top:10px;
+  }
+  .ticket-desc.en{
+    font-family:'Space Mono', monospace;
+    font-size:11.5px;
+    line-height:1.75;
+    opacity:0.72;
+    margin-top:6px;
+  }
+  .current-flag{
+    font-family:'Space Mono', monospace;
+    font-size:9.5px;
+    background:var(--chili);
+    color:var(--paper);
+    padding:2px 7px;
+    border-radius:3px;
+    letter-spacing:0.06em;
+    margin-left:8px;
+    vertical-align:middle;
+  }
+
+  /* category summary */
+  .cat-grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
+    gap:14px;
+    margin-bottom: 60px;
+  }
+  .cat-card{
+    background: var(--ink-soft);
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:18px 18px 16px;
+  }
+  .cat-card .cat-num{
+    font-family:'Archivo Black', sans-serif;
+    font-size:30px;
+    color: var(--gold);
+    line-height:1;
+  }
+  .cat-card .cat-label{
+    font-family:'Space Mono', monospace;
+    font-size:11.5px;
+    margin-top:8px;
+    color: var(--paper);
+    opacity:0.75;
+    letter-spacing:0.02em;
+  }
+
+  footer{
+    max-width:980px;
+    margin:0 auto;
+    padding: 60px 24px 80px;
+    border-top:1px solid var(--line);
+    margin-top:60px;
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:16px;
+    font-family:'Space Mono', monospace;
+    font-size:12px;
+    opacity:0.6;
+  }
+
+  @media (max-width: 640px){
+    .badge-stats{grid-template-columns:repeat(2,1fr); row-gap:16px;}
+    .badge-stats div:nth-child(2){border-right:none;}
+    .badge-card{padding:28px 22px 24px;}
+    .ticket-list::before{left:11px;}
+    .ticket{padding-left:34px;}
+    .ticket-node{left:4px;}
+  }
+
+  :focus-visible{
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+  }
+</style>
+</head>
+<body class="tile-bg">
+
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="eyebrow"><span class="dot"></span>PART-TIME WORK PORTFOLIO · BUSAN, KOREA</div>
+
+      <div class="badge-card">
+        <div class="stamp">경력<br>인증<br>15건</div>
+        <div class="badge-top">
+          <div class="avatar-mark">SH</div>
+          <div>
+            <h1 class="badge-name">Samia Umme<br>Hafsha</h1>
+            <div class="badge-sub">사미아 움메 핫사 · 22세 · 방글라데시 유학생 (D-2)</div>
+          </div>
+        </div>
+        <p class="badge-tagline">
+          동명대학교 기계자동화공학과 3학기 재학 중이며, 2022년부터 부산 전역의 치킨전문점·일식당·수산시장·청소업체에서
+          서빙, 주방보조, 매장관리, 베이킹까지 다양한 외식·서비스 업무를 경험했습니다.
+          한국어 청해는 능숙하며 회화 실력은 꾸준히 향상 중입니다. 책임감이 강하고 배움이 빠르며,
+          손님 응대와 팀 협업에 자신이 있습니다.
+        </p>
+        <div class="badge-stats">
+          <div><div class="num">15</div><div class="label">TOTAL ROLES</div></div>
+          <div><div class="num">4Y+</div><div class="label">2022 – 2026</div></div>
+          <div><div class="num">8</div><div class="label">CHICKEN / F&amp;B</div></div>
+          <div><div class="num">A2</div><div class="label">현재 근무지</div></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="skill-row">
+    <span class="chip"><b>한국어</b> 청해 능숙 · 회화 향상 중</span>
+    <span class="chip"><b>서빙</b> 홀 응대 · 주문 · 정리</span>
+    <span class="chip"><b>주방</b> 보조 · 조리 · 베이킹</span>
+    <span class="chip"><b>매장관리</b> 재고 · 판매 · 매니지먼트</span>
+    <span class="chip"><b>협업</b> 팀워크 · 책임감 · 빠른 습득</span>
+  </div>
+
+  <section>
+    <div class="section-head">
+      <h2>업종별 요약</h2>
+      <span class="count">CATEGORY BREAKDOWN</span>
+    </div>
+    <div class="cat-grid">
+      <div class="cat-card"><div class="cat-num">05</div><div class="cat-label">서빙 / 홀 응대</div></div>
+      <div class="cat-card"><div class="cat-num">07</div><div class="cat-label">주방보조 · 조리</div></div>
+      <div class="cat-card"><div class="cat-num">04</div><div class="cat-label">매장관리 / 판매</div></div>
+      <div class="cat-card"><div class="cat-num">02</div><div class="cat-label">업체 청소</div></div>
+      <div class="cat-card"><div class="cat-num">01</div><div class="cat-label">베이킹</div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>근무 경력</h2>
+      <span class="count">15 POSITIONS · 최신순</span>
+    </div>
+
+    <div class="ticket-list">
+
+      <div class="ticket current">
+        <div class="ticket-node"></div>
+        <div class="ticket-paper">
+          <div class="ticket-head">
+            <div class="ticket-name">BBQ 치킨 부산LCT점<span class="current-flag">근무중</span></div>
+            <div class="ticket-period">2026.02 – 2026.08<span class="ticket-duration">7개월 · 장기</span></div>
+          </div>
+          <div class="ticket-tags"><span class="tag">매장관리/판매</span><span class="tag">서빙</span></div>
+          <div class="ticket-desc">담당 업무: 수석 조리사, 주방 관리자 — 매장 운영 전반과 주방 인력 관리를 함께 담당.</div>
+        </div>
+      </div>
+
+      <div class="ticket">
+        <div class="ticket-node"></div>
+        <div class="ticket-paper">
+          <div class="ticket-head">
+            <div class="ticket-name">송정스시</div>
+            <div class="ticket-period">2025.07<span class="ticket-duration">장기</span></div>
+          </div>
+          <div class="ticket-tags"><span class="tag">서빙</span></div>
+          <div class="ticket-desc">담당 업무: 홀 청소, 서빙 정리</div>
+        </div>
+      </div>
+
+      <div class="ticket">
+        <div class="ticket-node"></div>
+        <div class="ticket-paper">
+          <div class="ticket-head">
+            <div class="ticket-name">오오티디 쇼룸</div>
+            <div class="ticket-period">2025.06<span class="ticket-duration">장기</span></div>
+          </div>
+          <div class="ticket-tags"><span class="tag">서빙</span><span class="tag">주방보조/설거지</span><span class="tag">주방장/조리사</span></div>
+          <div class="ticket-desc">담당 업무: 주문받기, 홀서빙, 간단 조리</div>
+        </div>
+      </div>
+
+      <div class="ticket">
+        <div class="ticket-node"></div>
+        <div class="ticket-paper">
+          <div class="ticket-head">
+            <div class="ticket-name">자담치킨 중동점</div>
+            <div class="ticket-period">2024.11<span class="ticket-duration">장기</span></div>
+          </div>
+          <div class="ticket-tags"><span class="tag">주방보조/설거지</span></div>
+          <div class="ticket-desc">담당 업무: 주방보조/설거지</div>
+        </div>
+      </div>
+
+      <div class="ticket">
+        <div class="ticket-node"></div>
+        <div class="ticket-paper">
+          <div class="ticket-head">
+            <div class="ticket-name">더솔리드</div>
+            <div class="ticket-period">2024.09<span class="ticket-duration">장기</span></div>
+          </div>
+          <div class="ticket-tags"><span class="tag">업체 청소</span></div>
+          <div class="ticket-desc">담당 업무: 업체청소</div>
+        </div>
+      </div>
+
+      <div class="ticket">
+        <div class="ticket-node"></div>
+        <div class="ticket-paper">
+          <div class="ticket-head">
+            <div class="ticket-name">탐복 용호점</div>
+            <div class="ticket-period">2024.08<span class="ticket-duration">장기</span></div>
+          </div>
+          <div class="ticket-tags"><span class="tag">서빙</span></div>
+          <div class="ticket-desc">담당 업무: 서빙</div>
+        </div>
+      </div>
+
+      <div class="ticket">
+        <div class="ticket-node"></div>
+        <div class="ticket-paper">
+          <div class="ticket-head">
+            <div class="ticket-name">아이엠부산</div>
+            <div class="ticket-period">2024.06<span class="ticket-duration">장기</span></div>
+          </div>
+          <div class="ticket-tags"><span class="tag">주방보조/설거지</span><span class="tag">매장관리/판매</span><span class="tag">베이킹</span></div>
+          <div class="ticket-desc">담당 업무: 주방보조/설거지, 매장관리/판매, 베이킹</div>
+        </div>
+      </div>
+
+      <div class="ticket">
+        <div class="ticket-node"></div>
+        <div class="ticket-paper">
+          <div class="ticket-head">
+            <div class="ticket-name">밀락피셔리</div>
+            <div class="ticket-period">2023.10<span class="ticket-duration">장기</span></div>
+          </div>
+          <div class="ticket-tags"><span class="tag">주방보조/설거지</span></div>
+          <div class="ticket-desc">담당 업무: 주방보조/설거지</div>
+        </div>
+      </div>
+
+      <div class="ticket">
+        <div class="ticket-node"></div>
+        <div class="ticket-paper">
+          <div class="ticket-head">
+            <div class="ticket-name">원조기장대게할인마트</div>
+            <div class="ticket-period">2023.10<span class="ticket-duration">장기</span></div>
+          </div>
+          <div class="ticket-tags"><span class="tag">서빙</span><span class="tag">주방장/조리사</span></div>
+          <div class="ticket-desc">담당 업무: 서빙, 주방장/조리사</div>
+        </div>
+      </div>
+
+      <div class="ticket">
+        <div class="ticket-node"></div>
+        <div class="ticket-paper">
+          <div class="ticket-head">
+            <div class="ticket-name">BBQ 치킨 좌동신시가지점</div>
+            <div class="ticket-period">2023.09 – 2024.09<span class="ticket-duration">1년 1개월 · 장기</span></div>
+          </div>
+          <div class="ticket-tags"><span class="tag">매장관리/판매</span></div>
+          <div class="ticket-desc">담당 업무: 주방 관리자</div>
+        </div>
+      </div>
+
+      <div class="ticket">
+        <div class="ticket-node"></div>
+        <div class="ticket-paper">
+          <div class="ticket-head">
+            <div class="ticket-name">달인막창 해운대 본점</div>
+            <div class="ticket-period">2023.09<span class="ticket-duration">장기</span></div>
+          </div>
+          <div class="ticket-tags"><span class="tag">서빙</span><span class="tag">매장관리/판매</span></div>
+          <div class="ticket-desc">담당 업무: 서빙, 매장관리/판매</div>
+        </div>
+      </div>
+
+      <div class="ticket">
+        <div class="ticket-node"></div>
+        <div class="ticket-paper">
+          <div class="ticket-head">
+            <div class="ticket-name">착한식당</div>
+            <div class="ticket-period">2023.09<span class="ticket-duration">장기</span></div>
+          </div>
+          <div class="ticket-tags"><span class="tag">서빙</span><span class="tag">주방보조/설거지</span></div>
+          <div class="ticket-desc">담당 업무: 서빙, 주방보조/설거지</div>
+        </div>
+      </div>
+
+      <div class="ticket">
+        <div class="ticket-node"></div>
+        <div class="ticket-paper">
+          <div class="ticket-head">
+            <div class="ticket-name">정구지곱창</div>
+            <div class="ticket-period">2023<span class="ticket-duration">장기</span></div>
+          </div>
+          <div class="ticket-tags"><span class="tag">서빙</span><span class="tag">주방장/조리사</span><span class="tag">업체 청소</span></div>
+          <div class="ticket-desc">고기식 레스토랑에서 홀 서버로 근무. 요리 보조와 매장 청소를 함께 담당했으며, 빠른 학습자로서 한국어가 서툰 시기에도 업무를 무리 없이 수행. 사장님이 항상 친절히 챙겨주셨고, 근무 기간 동안 전문적인 접객 기술과 한국의 예의·전통을 배우고 지키려 노력함.</div>
+        </div>
+      </div>
+
+      <div class="ticket">
+        <div class="ticket-node"></div>
+        <div class="ticket-paper">
+          <div class="ticket-head">
+            <div class="ticket-name">교촌치킨 (Kyochon1991)</div>
+            <div class="ticket-period">2022<span class="ticket-duration">장기</span></div>
+          </div>
+          <div class="ticket-tags"><span class="tag">주방장/조리사</span><span class="tag">물류/포장</span></div>
+          <div class="ticket-desc">한국 입국 후 첫 아르바이트. 치킨 밑간(마리네이드), 소스 작업, 조리, 포장 업무를 담당하며 외식업의 기본기를 익힘.</div>
+          <div class="ticket-desc en">This was my first job after coming to Korea — marinating chicken, saucing, cooking, and packing. A great experience working alongside Korean staff as a foreign student.</div>
+        </div>
+      </div>
+
+      <div class="ticket">
+        <div class="ticket-node"></div>
+        <div class="ticket-paper">
+          <div class="ticket-head">
+            <div class="ticket-name">불오뎅 해운대시장점</div>
+            <div class="ticket-period">2022<span class="ticket-duration">3개월 · 장기</span></div>
+          </div>
+          <div class="ticket-tags"><span class="tag">서빙</span><span class="tag">주방장/조리사</span><span class="tag">주방보조/설거지</span></div>
+          <div class="ticket-desc">부산의 번화한 해운대시장에서 3개월간 근무. 매운 어묵과 떡을 비롯한 전통 음식을 손님에게 제공했고, 재료 손질·조리·매장 청소까지 담당. 사장님이 항상 친절하게 대해주심.</div>
+          <div class="ticket-desc en">Worked for three months at one of Busan's busiest spots — served spicy fish cakes and rice cakes, prepped vegetables, cooked, and cleaned.</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <span>SAMIA UMME HAFSHA — SERVICE &amp; F&amp;B PORTFOLIO</span>
+    <span>BUSAN, SOUTH KOREA · UPDATED 2026</span>
+  </footer>
+
+</body>
+</html>
